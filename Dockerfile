@@ -4,7 +4,8 @@
 #
 # VERSION               1.3.3
 
-FROM      debian:sid
+#FROM      debian:sid
+FROM phusion/baseimage:0.9.15
 MAINTAINER Deni Bertovic "deni@kset.org"
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -16,6 +17,7 @@ ENV LUMBERJACK_TAG MYTAG
 ENV ELASTICWORKERS 1
 
 RUN apt-get update
+RUN apt-get install -y apt-utils
 RUN apt-get install -y wget openjdk-6-jre
 RUN wget https://download.elasticsearch.org/logstash/logstash/logstash-1.3.3-flatjar.jar -O /opt/logstash.jar --no-check-certificate 2>/dev/null
 
